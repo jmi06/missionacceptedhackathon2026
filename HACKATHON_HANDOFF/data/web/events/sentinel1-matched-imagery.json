@@ -1,0 +1,16 @@
+{
+  "name": "Comparable Sentinel-1 storm observations",
+  "grid": {
+    "crs": "EPSG:32620",
+    "bounds_wgs84": [[45.84, -64.45], [46.06, -63.95]],
+    "resolution_m": 50,
+    "dimensions": [783, 501]
+  },
+  "comparison_warning": "The Dorian and Lee pairs use matched platform, orbit, mode and polarization settings. Their colored polygons are calibrated low-backscatter candidates, not confirmed flood boundaries.",
+  "scenes": [
+    {"id":"dorian-before","date":"2019-08-27","sensor":"Sentinel-1B","pol":"HH/HV · HV analyzed","image":"data/events/dorian-before-map.png","bounds_wgs84":[[45.84,-64.45],[46.06,-63.95]],"display_stretch_sigma0_db":[-30,-5],"interpretation":"Comparable pre-event radar observation; not itself a flood map."},
+    {"id":"dorian-after","date":"2019-09-08","sensor":"Sentinel-1B","pol":"HH/HV · HV analyzed","image":"data/events/dorian-after-map.png","bounds_wgs84":[[45.84,-64.45],[46.06,-63.95]],"display_stretch_sigma0_db":[-30,-5],"interpretation":"Comparable post-event radar observation; colored change candidates require validation."},
+    {"id":"lee-before","date":"2023-09-05","sensor":"Sentinel-1A","pol":"HH/HV · HV analyzed","image":"data/events/lee-before-map.png","bounds_wgs84":[[45.84,-64.45],[46.06,-63.95]],"display_stretch_sigma0_db":[-30,-5],"interpretation":"Comparable pre-event radar observation; not itself a flood map."},
+    {"id":"lee-after","date":"2023-09-17","sensor":"Sentinel-1A","pol":"HH/HV · HV analyzed","image":"data/events/lee-after-map.png","bounds_wgs84":[[45.84,-64.45],[46.06,-63.95]],"display_stretch_sigma0_db":[-30,-5],"interpretation":"Comparable post-event radar observation; colored change candidates require validation."}
+  ]
+}

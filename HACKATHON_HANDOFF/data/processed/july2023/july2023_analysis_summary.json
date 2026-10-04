@@ -1,0 +1,78 @@
+{
+  "event_id": "july2023",
+  "event_name": "Nova Scotia July 2023 extreme rainfall",
+  "analysis_status": "comparable RCM candidate change; July 21 scene captured during event onset",
+  "aoi_wgs84": [
+    -64.45,
+    45.84,
+    -63.95,
+    46.06
+  ],
+  "target_crs": "EPSG:32620",
+  "target_resolution_m": 50.0,
+  "polarization": "VH",
+  "before": {
+    "zip": "C:\\Users\\Greyson Malabanan\\Downloads\\before 4.zip",
+    "acquisition_utc": "2023-07-17T21:55:39Z",
+    "product_id": "RCM3_OK2430353_PK2653571_1_SC50MA_20230717_215539_VV_VH_GRD",
+    "satellite": "RCM-3",
+    "source_member": "RCM3_OK2430353_PK2653571_1_SC50MA_20230717_215539_VV_VH_GRD/imagery/2653571_1_VH.tif",
+    "valid_output_pixels": 392283,
+    "lut_offset": 0.0,
+    "lut_gain_min": 200436831.1330366,
+    "lut_gain_max": 823724091.9721564
+  },
+  "during": {
+    "zip": "C:\\Users\\Greyson Malabanan\\Downloads\\shortlyafter 4.zip",
+    "acquisition_utc": "2023-07-21T21:55:17Z",
+    "product_id": "RCM1_OK2430353_PK2659153_1_SC50MA_20230721_215517_VV_VH_GRD",
+    "satellite": "RCM-1",
+    "source_member": "RCM1_OK2430353_PK2659153_1_SC50MA_20230721_215517_VV_VH_GRD/imagery/2659153_1_VH.tif",
+    "valid_output_pixels": 392283,
+    "lut_offset": 0.0,
+    "lut_gain_min": 200513458.7692306,
+    "lut_gain_max": 823952780.6422979
+  },
+  "threshold": {
+    "value_db": -20.6640625,
+    "method": "shared Otsu threshold on pooled before/during VH sigma-nought dB values",
+    "pooled_sample_count": 784563
+  },
+  "common_valid_area_ha": 98070.75,
+  "class_areas_ha": {
+    "persistent_low_backscatter": 8348.25,
+    "new_low_backscatter_during_july2023": 330.25,
+    "low_backscatter_no_longer_present": 146.5
+  },
+  "exported_polygon_counts": {
+    "persistent_low_backscatter": 77,
+    "new_low_backscatter_during_july2023": 108,
+    "low_backscatter_no_longer_present": 37
+  },
+  "web_imagery": {
+    "bounds_wgs84": [
+      [
+        45.834750053718544,
+        -64.45574736671996
+      ],
+      [
+        46.06524942035798,
+        -63.94624909252508
+      ]
+    ],
+    "shared_display_stretch_db": [
+      -29.534,
+      -9.8923
+    ],
+    "images": {
+      "before": "data/events/july2023-before-map.png",
+      "during": "data/events/july2023-during-map.png"
+    }
+  },
+  "limitations": [
+    "The July 21 acquisition occurred during the onset of the extreme-rainfall event, not after the full event.",
+    "Low radar backscatter is not unique to open water.",
+    "No terrain, permanent-water, or field-validation mask has been applied.",
+    "The selected Chignecto study area was not the main Halifax-area impact centre reported by authorities."
+  ]
+}

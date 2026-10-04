@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="A plain-language satellite map showing water-like changes around major storms near the Chignecto Isthmus." />
+  <title>Chignecto Storm Change Monitor</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://unpkg.com" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="app">
+  <div id="map" role="application" aria-label="Map of satellite observations near the Chignecto Isthmus"></div>
+  <header class="topbar">
+    <button class="brand" id="homeButton" aria-label="Reset map"><span class="brand-mark">⌁</span><span><strong>Chignecto</strong><small>Storm Change Monitor</small></span></button>
+    <div class="search-wrap"><span>⌕</span><input id="assetSearch" type="search" placeholder="Search a candidate or flood record" /><div id="searchResults" class="search-results" hidden></div></div>
+    <div class="top-actions"><span class="demo-pill"><i></i> Evidence-screening prototype</span><button class="help-button" id="helpButton">How to use</button><button class="icon-button" id="infoButton" aria-label="About">i</button></div>
+  </header>
+
+  <aside class="left-panel panel">
+    <div class="panel-heading"><div><span class="eyebrow">SATELLITE VIEW</span><h1>Water changes after storms</h1></div><button class="collapse-button" id="collapseLeft">‹</button></div>
+    <div class="timeline-story"><span>ONE CONTINUOUS TIMELINE</span><strong>Dorian 2019 → Fiona 2022 → July floods 2023 → Lee 2023</strong></div>
+    <p class="event-explainer" id="eventExplainer">Move through eight real radar observations. Fiona and July use RCM; Dorian and Lee use newly matched Sentinel-1 pairs.</p>
+    <div class="summary-row"><div><span id="observationCount">8</span><small>radar images</small></div><div><span id="flaggedCount">4</span><small id="flaggedLabel">event periods</small></div><div><span id="eventYear">2019–23</span><small>timeline</small></div></div>
+
+    <section class="control-section" id="layerControls">
+      <div class="section-title"><span>What the colours mean</span><button id="resetLayers">Show all</button></div>
+      <label class="layer-row"><span class="layer-symbol imagery-symbol"></span><span class="layer-name"><strong>Actual radar image</strong><small>Changes at every timeline stop</small></span><input class="switch" type="checkbox" id="imageToggle" checked /></label>
+      <div class="imagery-opacity"><span>Radar visibility</span><input id="imageOpacity" type="range" min="20" max="100" value="78" /></div>
+      <label class="layer-row fiona-only"><span class="layer-symbol water-symbol"></span><span class="layer-name"><strong id="persistentLabel">Water-like on both dates</strong><small>Often permanent water</small></span><input class="switch" type="checkbox" id="waterToggle" checked /></label>
+      <label class="layer-row fiona-only"><span class="layer-symbol anomaly-symbol"></span><span class="layer-name"><strong id="newLabel">Appeared after Fiona</strong><small>Priority places to check</small></span><input class="switch" type="checkbox" id="anomalyToggle" checked /></label>
+      <label class="layer-row"><span class="layer-symbol asset-symbol"></span><span class="layer-name"><strong>Past flood reports</strong><small>Official location records</small></span><input class="switch" type="checkbox" id="assetsToggle" checked /></label>
+      <label class="layer-row fiona-only"><span class="layer-symbol property-symbol"></span><span class="layer-name"><strong id="removedLabel">Seen only before Fiona</strong><small>Could reflect changing conditions</small></span><input class="switch" type="checkbox" id="propertyToggle" /></label>
+    </section>
+
+    <section class="control-section queue-section"><div class="section-title"><span id="queueTitle">Largest areas to check</span><em id="queueCount">Loading</em></div><div id="inspectionQueue" class="inspection-queue"></div></section>
+    <p class="data-note" id="dataNote">Dark radar areas can be water, but also wet ground, roads or shadow. These are places to check—not confirmed floods.</p>
+    <button class="panel-help-button" id="helpButtonPanel">Open the quick guide</button>
+  </aside>
+  <button class="panel-reopen" id="reopenLeft" hidden>☰</button>
+  <div class="map-tools"><button id="zoomIn">+</button><button id="zoomOut">−</button><button id="locateButton">⌖</button></div>
+
+  <section class="detail-panel panel" id="detailPanel">
+    <button class="close-button" id="closeDetails">×</button><span class="detail-type" id="detailType">PLACE TO CHECK</span>
+    <h2 id="detailName">Fiona change area</h2><p id="detailLocation">Satellite comparison</p>
+    <img id="eventPreview" class="event-preview" alt="Satellite product preview" hidden />
+    <div class="status-banner" id="detailStatus"><span></span><strong>Needs a closer look</strong><small>Satellite screening result</small></div>
+    <div class="metric-grid"><div><small id="metricOneLabel">Area</small><strong id="detailDistance">—</strong></div><div><small id="metricTwoLabel">What changed</small><strong id="detailTrend">—</strong></div><div><small>Image date</small><strong id="detailObserved">—</strong></div><div><small>Satellite</small><strong id="detailConfidence">—</strong></div></div>
+    <button class="primary-button" id="addInspection">Mark for review</button><button class="text-button" id="viewEvidence">View data details</button>
+  </section>
+
+  <section class="timeline-card panel"><button class="play-button" id="playButton"><span class="play-icon">▶</span><span class="pause-icon" hidden>Ⅱ</span></button><div class="timeline-main"><div class="timeline-labels"><span id="timelineTitle">Storm observations · 2019–2023</span><strong id="yearLabel">Sep 24, 2022</strong></div><input id="yearSlider" type="range" min="0" max="7" value="3" step="1" /><div class="year-ticks"><button data-index="0">Dorian · before</button><button data-index="1">Dorian · after</button><button data-index="2">Fiona · before</button><button class="active" data-index="3">Fiona · after</button><button data-index="4">July · before</button><button data-index="5">July · during</button><button data-index="6">Lee · before</button><button data-index="7">Lee · after</button></div></div><button class="compare-button active" id="compareButton"><span>Show all changes</span></button></section>
+  <div class="legend panel" id="legend"><strong id="legendTitle">Fiona analysis</strong><span><i class="legend-low"></i>Both dates</span><span><i class="legend-high"></i>New low return</span><span><i class="legend-point"></i>Past report</span></div>
+  <div class="scene-badge panel" id="sceneBadge"><strong>FIONA · AFTER</strong><span>RCM radar · Sep 24, 2022 · measured analysis</span></div>
+  <div class="toast" id="toast" hidden></div>
+
+  <div class="modal-backdrop" id="aboutModal" hidden><section class="about-modal panel"><button class="close-button" id="closeAbout">×</button><span class="eyebrow">HACKATHON PROTOTYPE</span><h2>What this product actually shows</h2><p>It organizes eight real radar observations into one timeline. Fiona and July 2023 use comparable RCM pairs; Dorian and Lee use matched Sentinel-1 pairs. All four periods support calculated low-return change candidates.</p><ol><li><strong>Observe</strong><span>Move through real satellite snapshots from 2019 to 2023.</span></li><li><strong>Measure</strong><span>Inspect orange areas that newly crossed a shared water-like radar threshold within each matched pair.</span></li><li><strong>Validate</strong><span>Combine candidates with flood records, terrain, permanent water and local evidence.</span></li></ol><div class="modal-note"><strong>Important</strong>This is a screening tool. It does not prove that a place flooded and it is not an engineering, insurance or property-value assessment.</div></section></div>
+  <div class="modal-backdrop" id="helpModal" hidden><section class="about-modal help-modal panel"><button class="close-button" id="closeHelp">×</button><span class="eyebrow">QUICK GUIDE</span><h2>How to use the timeline</h2><ol class="numbered-guide"><li><strong>1. Start in 2019</strong><span>Move the slider to Dorian · before, or press play to begin the full sequence.</span></li><li><strong>2. Move through time</strong><span>The eight stops show Dorian, Fiona, the July 2023 rainfall interval, and Lee in date order.</span></li><li><strong>3. Watch the map</strong><span>The black-and-white radar image changes at every stop. Each before/after pair uses one shared display scale.</span></li><li><strong>4. Read the badge</strong><span>The badge identifies the event, date, sensor and measured interval.</span></li><li><strong>5. Study measured intervals</strong><span>Dorian and Lee use matched Sentinel-1 pairs; Fiona and July use matched RCM pairs. Orange means newly water-like; blue means both dates; purple means the first date only.</span></li><li><strong>6. Adjust visibility</strong><span>Use “Radar visibility” to reveal the street map beneath the satellite image.</span></li><li><strong>7. Inspect results</strong><span>Click an orange shape or select a large candidate from the left panel.</span></li></ol><div class="modal-note"><strong>Remember</strong>These are candidate radar changes, not confirmed flood boundaries. The July 21 image was captured during rainfall onset, not after the complete event.</div></section></div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="app-rcm.js"></script>
+</body>
+</html>

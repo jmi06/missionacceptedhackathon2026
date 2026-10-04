@@ -1,0 +1,84 @@
+{
+  "analysis_status": "candidate low-backscatter change; validation required",
+  "aoi_wgs84": [
+    -64.45,
+    45.84,
+    -63.95,
+    46.06
+  ],
+  "target_crs": "EPSG:32620",
+  "target_resolution_m": 50.0,
+  "target_dimensions": {
+    "width": 783,
+    "height": 501
+  },
+  "target_bounds_utm": [
+    387400.2971273039,
+    5076709.421849488,
+    426518.97294049006,
+    5101735.942773101
+  ],
+  "polarization": "VH",
+  "before": {
+    "folder": "C:\\Users\\Greyson Malabanan\\Documents\\ChatGPT\\Mission Accepted Hackathon\\data\\rcm-fiona\\before",
+    "acquisition_utc": "2022-09-20T21:55:31Z",
+    "product_id": "RCM3_OK2000431_PK2265822_1_SC50MA_20220920_215531_VV_VH_GRD",
+    "source_file": "C:\\Users\\Greyson Malabanan\\Documents\\ChatGPT\\Mission Accepted Hackathon\\data\\rcm-fiona\\before\\2265822_1_VH.tif",
+    "source_window": {
+      "row_offset": 15243,
+      "col_offset": 0,
+      "height": 2081,
+      "width": 2567
+    },
+    "valid_output_pixels": 392283,
+    "calibration": "sigma0 = (DN^2 + B) / A; converted to dB with 10*log10(sigma0)",
+    "lut_offset": 0.0,
+    "lut_gain_min": 200565682.1828698,
+    "lut_gain_max": 824109139.6891532
+  },
+  "after": {
+    "folder": "C:\\Users\\Greyson Malabanan\\Documents\\ChatGPT\\Mission Accepted Hackathon\\data\\rcm-fiona\\after",
+    "acquisition_utc": "2022-09-24T21:55:05Z",
+    "product_id": "RCM1_OK2000496_PK2271094_2_SC50MA_20220924_215505_VV_VH_GRD",
+    "source_file": "C:\\Users\\Greyson Malabanan\\Documents\\ChatGPT\\Mission Accepted Hackathon\\data\\rcm-fiona\\after\\2271094_2_VH.tif",
+    "source_window": {
+      "row_offset": 17588,
+      "col_offset": 0,
+      "height": 1471,
+      "width": 2530
+    },
+    "valid_output_pixels": 328563,
+    "calibration": "sigma0 = (DN^2 + B) / A; converted to dB with 10*log10(sigma0)",
+    "lut_offset": 0.0,
+    "lut_gain_min": 200926521.0302049,
+    "lut_gain_max": 823867536.3247277
+  },
+  "threshold": {
+    "value_db": -20.2734375,
+    "method": "shared Otsu threshold on pooled before/after VH sigma-nought dB values",
+    "histogram_range_db": [
+      -40.0,
+      0.0
+    ],
+    "histogram_bins": 512,
+    "pooled_sample_count": 720843
+  },
+  "common_valid_area_ha": 82140.75,
+  "class_areas_ha": {
+    "persistent_low_backscatter": 6953.75,
+    "new_low_backscatter_after_fiona": 412.25,
+    "low_backscatter_no_longer_present": 377.5
+  },
+  "exported_polygon_counts": {
+    "persistent_low_backscatter": 63,
+    "new_low_backscatter_after_fiona": 130,
+    "low_backscatter_no_longer_present": 35
+  },
+  "limitations": [
+    "Low radar backscatter is not unique to open water.",
+    "Radar shadow, smooth wet surfaces, roads, and other low-return targets may be included.",
+    "Tidal state and acquisition timing may contribute to coastal differences.",
+    "The after scene was acquired on September 24, 2022 and does not represent peak conditions throughout the storm.",
+    "No terrain mask, permanent-water mask, or field validation has yet been applied."
+  ]
+}

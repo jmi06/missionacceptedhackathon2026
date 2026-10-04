@@ -218,3 +218,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local environments and temporary Sites packaging
+.site-stage-*/
+*.tar.gz
+chignecto-resilience-demo/
+
+# Raw satellite products are too large for GitHub. Their provenance and hashes
+# are documented in HACKATHON_HANDOFF/DATA_AND_API_INVENTORY.md.
+data/rcm-fiona/
