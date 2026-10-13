@@ -1,0 +1,103 @@
+{
+  "events": [
+    {
+      "id": "fiona",
+      "name": "Hurricane Fiona",
+      "analysis_status": "RCM change analysis",
+      "plain_summary": "The two RCM images are technically comparable, so the map can calculate low-radar-return changes between them.",
+      "comparison_note": "Same RCM mode, product type, pass direction and VV/VH polarization.",
+      "scenes": [
+        {
+          "role": "before",
+          "zip": "before 1.zip",
+          "date": "2022-09-20",
+          "time_utc": "21:55:31",
+          "sensor": "RCM-3",
+          "polarization": "VV/VH",
+          "mode": "SC50MA GRD",
+          "product_id": "RCM3_OK2000431_PK2265822_1_SC50MA_20220920_215531_VV_VH_GRD",
+          "preview": "data/events/fiona-before.png",
+          "footprint_id": "fiona-before"
+        },
+        {
+          "role": "after",
+          "zip": "shortlyafter 1.zip",
+          "date": "2022-09-24",
+          "time_utc": "21:55:05",
+          "sensor": "RCM-1",
+          "polarization": "VV/VH",
+          "mode": "SC50MA GRD",
+          "product_id": "RCM1_OK2000496_PK2271094_2_SC50MA_20220924_215505_VV_VH_GRD",
+          "preview": "data/events/fiona-after.png",
+          "footprint_id": "fiona-after"
+        }
+      ]
+    },
+    {
+      "id": "lee",
+      "name": "Hurricane Lee",
+      "analysis_status": "Sentinel-1 change analysis",
+      "plain_summary": "The replacement Sentinel-1 pair uses matching acquisition settings, allowing calibrated low-backscatter change candidates to be calculated.",
+      "comparison_note": "Same Sentinel-1A platform, IW GRDH mode, descending relative orbit 69 and HH/HV polarization.",
+      "scenes": [
+        {
+          "role": "before",
+          "zip": "public AWS Sentinel-1 GRD archive",
+          "date": "2023-09-05",
+          "time_utc": "10:31:48",
+          "sensor": "Sentinel-1A",
+          "polarization": "HH/HV",
+          "mode": "IW GRDH",
+          "product_id": "S1A_IW_GRDH_1SDH_20230905T103148_20230905T103213_050191_060A83_BD1E",
+          "preview": "data/events/lee-before-map.png",
+          "footprint_id": "lee-before"
+        },
+        {
+          "role": "after",
+          "zip": "shortlyafter 2.zip",
+          "date": "2023-09-17",
+          "time_utc": "10:31:49",
+          "sensor": "Sentinel-1A",
+          "polarization": "HH/HV",
+          "mode": "IW GRDH",
+          "product_id": "S1A_IW_GRDH_1SDH_20230917T103149_20230917T103214_050366_06106F_D660",
+          "preview": "data/events/lee-after-map.png",
+          "footprint_id": "lee-after"
+        }
+      ]
+    },
+    {
+      "id": "dorian",
+      "name": "Hurricane Dorian",
+      "analysis_status": "Sentinel-1 change analysis",
+      "plain_summary": "The replacement Sentinel-1 pair uses matching acquisition settings, allowing calibrated low-backscatter change candidates to be calculated.",
+      "comparison_note": "Same Sentinel-1B platform, IW GRDH mode, descending relative orbit 69 and HH/HV polarization.",
+      "scenes": [
+        {
+          "role": "before",
+          "zip": "public AWS Sentinel-1 GRD archive",
+          "date": "2019-08-27",
+          "time_utc": "10:30:43",
+          "sensor": "Sentinel-1B",
+          "polarization": "HH/HV",
+          "mode": "IW GRDH",
+          "product_id": "S1B_IW_GRDH_1SDH_20190827T103043_20190827T103108_017770_021711_9481",
+          "preview": "data/events/dorian-before-map.png",
+          "footprint_id": "dorian-before"
+        },
+        {
+          "role": "after",
+          "zip": "shortlyafter 3.zip",
+          "date": "2019-09-08",
+          "time_utc": "10:30:43",
+          "sensor": "Sentinel-1B",
+          "polarization": "HH/HV",
+          "mode": "IW GRDH",
+          "product_id": "S1B_IW_GRDH_1SDH_20190908T103043_20190908T103108_017945_021C7C_59C6",
+          "preview": "data/events/dorian-after-map.png",
+          "footprint_id": "dorian-after"
+        }
+      ]
+    }
+  ]
+}

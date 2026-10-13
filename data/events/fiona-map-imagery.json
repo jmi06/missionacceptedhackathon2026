@@ -1,0 +1,23 @@
+{
+  "bounds_wgs84": [
+    [
+      45.83453879556344,
+      -64.45574736671996
+    ],
+    [
+      46.06525278605409,
+      -63.94584219156601
+    ]
+  ],
+  "shared_display_stretch_db": [
+    -28.4484,
+    -10.0944
+  ],
+  "source": "calibrated aligned RCM VH sigma-nought dB rasters",
+  "alpha_mask": "common valid observation area on both dates",
+  "interpretation": "radar intensity image; not a flood map",
+  "images": {
+    "before": "data/events/fiona-before-map.png",
+    "after": "data/events/fiona-after-map.png"
+  }
+}

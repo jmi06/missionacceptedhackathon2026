@@ -1,0 +1,86 @@
+{
+  "event_id": "dorian",
+  "event": "Hurricane Dorian",
+  "analysis_status": "candidate low-backscatter change; validation required",
+  "source": "AWS Registry of Open Data Sentinel-1 GRD archive, indexed by Element 84 Earth Search",
+  "aoi_wgs84": [
+    -64.45,
+    45.84,
+    -63.95,
+    46.06
+  ],
+  "target_crs": "EPSG:32620",
+  "target_resolution_m": 50.0,
+  "target_dimensions": {
+    "width": 783,
+    "height": 501
+  },
+  "target_bounds_utm": [
+    387400.2971273039,
+    5076709.421849488,
+    426518.97294049006,
+    5101735.942773101
+  ],
+  "sensor": "Sentinel-1",
+  "polarization": "HV",
+  "relative_orbit": 69,
+  "orbit_direction": "descending",
+  "before": {
+    "acquisition_utc": "2019-08-27T10:30:43Z",
+    "product_id": "S1B_IW_GRDH_1SDH_20190827T103043_20190827T103108_017770_021711_9481",
+    "base": "GRD/2019/8/27/IW/DH/S1B_IW_GRDH_1SDH_20190827T103043_20190827T103108_017770_021711_9481",
+    "measurement_url": "https://sentinel-s1-l1c.s3.eu-central-1.amazonaws.com/GRD/2019/8/27/IW/DH/S1B_IW_GRDH_1SDH_20190827T103043_20190827T103108_017770_021711_9481/measurement/iw-hv.tiff",
+    "calibration_url": "https://sentinel-s1-l1c.s3.eu-central-1.amazonaws.com/GRD/2019/8/27/IW/DH/S1B_IW_GRDH_1SDH_20190827T103043_20190827T103108_017770_021711_9481/annotation/calibration/calibration-iw-hv.xml",
+    "source_window": {
+      "row_offset": 13986,
+      "col_offset": 0,
+      "height": 2696,
+      "width": 4002
+    },
+    "valid_output_pixels": 295288,
+    "calibration": "sigma0 = DN^2 / sigmaNought_LUT^2; converted to dB with 10*log10(sigma0)"
+  },
+  "after": {
+    "acquisition_utc": "2019-09-08T10:30:43Z",
+    "product_id": "S1B_IW_GRDH_1SDH_20190908T103043_20190908T103108_017945_021C7C_59C6",
+    "base": "GRD/2019/9/8/IW/DH/S1B_IW_GRDH_1SDH_20190908T103043_20190908T103108_017945_021C7C_59C6",
+    "measurement_url": "https://sentinel-s1-l1c.s3.eu-central-1.amazonaws.com/GRD/2019/9/8/IW/DH/S1B_IW_GRDH_1SDH_20190908T103043_20190908T103108_017945_021C7C_59C6/measurement/iw-hv.tiff",
+    "calibration_url": "https://sentinel-s1-l1c.s3.eu-central-1.amazonaws.com/GRD/2019/9/8/IW/DH/S1B_IW_GRDH_1SDH_20190908T103043_20190908T103108_017945_021C7C_59C6/annotation/calibration/calibration-iw-hv.xml",
+    "source_window": {
+      "row_offset": 13986,
+      "col_offset": 0,
+      "height": 2696,
+      "width": 4001
+    },
+    "valid_output_pixels": 295287,
+    "calibration": "sigma0 = DN^2 / sigmaNought_LUT^2; converted to dB with 10*log10(sigma0)"
+  },
+  "threshold": {
+    "value_db": -18.0859375,
+    "method": "shared Otsu threshold on pooled before/after Sentinel-1 HV sigma-nought dB",
+    "histogram_range_db": [
+      -40.0,
+      0.0
+    ],
+    "histogram_bins": 512,
+    "pooled_sample_count": 590573
+  },
+  "common_valid_area_ha": 73802.75,
+  "class_areas_ha": {
+    "persistent_low_backscatter": 5764.25,
+    "new_low_backscatter_after_dorian": 1445.5,
+    "low_backscatter_no_longer_present": 311.25
+  },
+  "exported_polygon_counts": {
+    "persistent_low_backscatter": 169,
+    "new_low_backscatter_after_dorian": 522,
+    "low_backscatter_no_longer_present": 88
+  },
+  "limitations": [
+    "Low radar backscatter is not unique to open water.",
+    "Radar shadow, smooth wet surfaces, roads, tides, and agricultural change may be included.",
+    "These dates show conditions at two satellite passes, not continuous or peak-event coverage.",
+    "No permanent-water, terrain, tide, or field-validation mask has yet been applied.",
+    "The products are calibrated to sigma-nought but are not radiometrically terrain flattened."
+  ]
+}

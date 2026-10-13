@@ -1,0 +1,140 @@
+{
+  "name": "Map-aligned Sentinel-1 storm context",
+  "grid": {
+    "crs": "EPSG:4326",
+    "bounds_wgs84": [
+      [
+        44.3,
+        -67.4
+      ],
+      [
+        47.9,
+        -60.4
+      ]
+    ],
+    "pixel_degrees": 0.003,
+    "dimensions": [
+      2334,
+      1201
+    ]
+  },
+  "comparison_warning": "Each scene is contrast-stretched independently. Lee and Dorian before/after scenes use different polarizations and viewing directions, so brightness differences must not be interpreted as measured flood change.",
+  "scenes": [
+    {
+      "id": "dorian-before",
+      "zip": "before 3.zip",
+      "pol": "vh",
+      "date": "2019-09-05",
+      "sensor": "Sentinel-1A",
+      "image": "data/events/dorian-before-map.png",
+      "bounds_wgs84": [
+        [
+          44.3,
+          -67.4
+        ],
+        [
+          47.9,
+          -60.4
+        ]
+      ],
+      "display_stretch_amplitude_db": [
+        25.2799,
+        42.1734
+      ],
+      "valid_output_pixels": 545078,
+      "output_dimensions": [
+        2334,
+        1201
+      ],
+      "processing": "Raw Sentinel-1 cross-polarized amplitude geolocated from embedded GCPs, averaged to a common regional grid, converted to amplitude dB, and contrast-stretched per scene.",
+      "interpretation": "Map-aligned visual context only; brightness and water change are not comparable between the before and after scenes."
+    },
+    {
+      "id": "dorian-after",
+      "zip": "shortlyafter 3.zip",
+      "pol": "hv",
+      "date": "2019-09-08",
+      "sensor": "Sentinel-1B",
+      "image": "data/events/dorian-after-map.png",
+      "bounds_wgs84": [
+        [
+          44.3,
+          -67.4
+        ],
+        [
+          47.9,
+          -60.4
+        ]
+      ],
+      "display_stretch_amplitude_db": [
+        31.8517,
+        42.2848
+      ],
+      "valid_output_pixels": 558701,
+      "output_dimensions": [
+        2334,
+        1201
+      ],
+      "processing": "Raw Sentinel-1 cross-polarized amplitude geolocated from embedded GCPs, averaged to a common regional grid, converted to amplitude dB, and contrast-stretched per scene.",
+      "interpretation": "Map-aligned visual context only; brightness and water change are not comparable between the before and after scenes."
+    },
+    {
+      "id": "lee-before",
+      "zip": "before 2.zip",
+      "pol": "vh",
+      "date": "2023-09-13",
+      "sensor": "Sentinel-1A",
+      "image": "data/events/lee-before-map.png",
+      "bounds_wgs84": [
+        [
+          44.3,
+          -67.4
+        ],
+        [
+          47.9,
+          -60.4
+        ]
+      ],
+      "display_stretch_amplitude_db": [
+        25.6608,
+        43.8102
+      ],
+      "valid_output_pixels": 550682,
+      "output_dimensions": [
+        2334,
+        1201
+      ],
+      "processing": "Raw Sentinel-1 cross-polarized amplitude geolocated from embedded GCPs, averaged to a common regional grid, converted to amplitude dB, and contrast-stretched per scene.",
+      "interpretation": "Map-aligned visual context only; brightness and water change are not comparable between the before and after scenes."
+    },
+    {
+      "id": "lee-after",
+      "zip": "shortlyafter 2.zip",
+      "pol": "hv",
+      "date": "2023-09-17",
+      "sensor": "Sentinel-1A",
+      "image": "data/events/lee-after-map.png",
+      "bounds_wgs84": [
+        [
+          44.3,
+          -67.4
+        ],
+        [
+          47.9,
+          -60.4
+        ]
+      ],
+      "display_stretch_amplitude_db": [
+        31.3547,
+        43.2072
+      ],
+      "valid_output_pixels": 559631,
+      "output_dimensions": [
+        2334,
+        1201
+      ],
+      "processing": "Raw Sentinel-1 cross-polarized amplitude geolocated from embedded GCPs, averaged to a common regional grid, converted to amplitude dB, and contrast-stretched per scene.",
+      "interpretation": "Map-aligned visual context only; brightness and water change are not comparable between the before and after scenes."
+    }
+  ]
+}

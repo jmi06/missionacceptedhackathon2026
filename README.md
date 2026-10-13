@@ -1,5 +1,7 @@
 # Chignecto Resilience Monitor
 
+> Deployment branch: the static application and its complete web-ready dataset are available directly from the repository root. See `DEPLOYMENT.md`.
+
 An interactive hackathon prototype that combines Canadian RADARSAT Constellation Mission imagery, complementary Sentinel-1 observations, Natural Resources Canada historical flood records, and OpenStreetMap context for the Chignecto Isthmus.
 
 ## Live demo
